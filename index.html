@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Followers Demo</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(135deg,#ff7a18,#d62976,#4f5bd5);
+  padding:30px 15px;
+}
+.card{
+  max-width:450px;
+  margin:auto;
+  background:white;
+  border-radius:25px;
+  padding:25px;
+  text-align:center;
+}
+h1{color:#e1306c}
+.stats{
+  display:flex;
+  justify-content:space-around;
+  margin:25px 0;
+}
+.stats b{font-size:24px}
+.stats span{
+  display:block;
+  color:#777;
+  margin-top:5px;
+}
+input{
+  width:90%;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+}
+.options{
+  display:flex;
+  gap:10px;
+  margin:20px 0;
+}
+.options button{
+  flex:1;
+  padding:18px 5px;
+  background:white;
+  border:1px solid #ddd;
+  border-radius:15px;
+}
+.generate{
+  width:100%;
+  padding:17px;
+  border:0;
+  border-radius:15px;
+  background:#287be5;
+  color:white;
+  font-size:18px;
+}
+#result{font-weight:bold}
+</style>
+</head>
+
+<body>
+<div class="card">
+
+<h1>Instagram ✓</h1>
+
+<div class="stats">
+<div><b>847</b><span>Posts</span></div>
+<div><b>12.0K</b><span>Followers</span></div>
+<div><b>1,234</b><span>Following</span></div>
+</div>
+
+<h3>Instagram Username</h3>
+<input id="user" placeholder="@username">
+
+<h3>Choose Demo Amount</h3>
+
+<div class="options">
+<button onclick="selectAmount('1K')">1K</button>
+<button onclick="selectAmount('5K')">5K</button>
+<button onclick="selectAmount('10K')">10K</button>
+</div>
+
+<p id="chosen">مقدار انتخاب کړه</p>
+
+<button class="generate" onclick="generate()">
+Generate Demo
+</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+let amount="";
+
+function selectAmount(x){
+  amount=x;
+  document.getElementById("chosen").innerText =
+  "انتخاب شوی: "+x;
+}
+
+function generate(){
+  let user=document.getElementById("user").value;
+
+  if(!user){
+    document.getElementById("result").innerText =
+    "Username ولیکه.";
+    return;
+  }
+
+  if(!amount){
+    document.getElementById("result").innerText =
+    "لومړی مقدار انتخاب کړه.";
+    return;
+  }
+
+  document.getElementById("result").innerText =
+    "Demo بشپړ شو — دا یوازې نمونه ده.";
+}
+</script>
+
+</body>
+</html>
